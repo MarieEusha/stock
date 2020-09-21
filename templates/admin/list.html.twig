@@ -1,1 +1,41 @@
 {% extends 'base.html.twig' %}
+
+
+{% block body %}
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+</br>
+<h1>Liste d'articles</h1>
+</br>
+<table  class="table table-hover" id = "articleListTable">
+    <thead>
+        <th scope="col"> ref </th>
+        <th scope="col"> label </th>
+        <th scope="col"> prix </th>
+        <th scope="col"> quantité  </th>
+        <th scope="col"> Nom du stockage </th>
+        <th scope="col" rowspan ="2"> management </th>
+    </thead>
+    <tbody>
+    
+        {% for article in articles %}           
+            <tr class="ligne{{article.ref}}">
+                <td>{{article.ref}}</td>
+                <td>{{article.label}}</td>
+                <td>{{article.price}}</td>
+                <td>{{article.qty}} </td>
+                <td>{{article.nameStorage}}</td>
+                <td><a href="{{path('article_edit',{'ref': article.ref}) }}"><button class="edit btn-info btn" name="edit" value="{{article.ref}}">Edit</button></a></td>
+                <td><button class="delete btn-danger btn" id="delete" name="ref" value="{{article.ref}}">Delete</button></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}
+{% block javascripts %}
+    <script>
+        var articleDelete = "{{path('article_delete')}}";
+    </script>
+    <script src= "{{ asset('assets/js/management.js') }}"></script>
+{% endblock %}

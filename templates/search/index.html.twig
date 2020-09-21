@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+
+
+<label class="switch">
+  <input type="checkbox" id="toggle">
+  <span class="slider round"></span>
+</label>
+
+<div id="search_simple">
+    <button class= "btn btn-primary" id="btnSearch">Search</button> 
+    <input name="search" id="research"></input>
+</div>
+
+<div id="search_price">
+    <button class= "btn btn-primary" id="btnPrice">Search</button> 
+    <input name="prixMin" id="prixMin" placeholder="prixMin"></input>
+    <input name="prixMax" id="prixMax" placeholder="prixMax"></input>
+</div>
+
+<br>
+<table  class="table table-hover">
+    <thead>
+        <tr>
+            <th scope='col'>Ref</th>
+            <th scope='col'>Label</th>
+            <th scope='col'>Price</th>
+        </tr>
+    </thead>
+    <tbody id="tBodyA">
+</table>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        var articleSearch = "{{path('search')}}";
+        var price = "{{path('interval')}}";
+    </script>
+    <script src= "{{ asset('assets/js/search.js') }}"></script>
+{% endblock %}

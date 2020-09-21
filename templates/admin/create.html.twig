@@ -3,7 +3,9 @@
 {% form_theme formArticle 'bootstrap_4_layout.html.twig' %}
 
 {% block body %}
+<br>
     <h1>Création d'un article</h1>
+<br>
 
     {{ form_start(formArticle) }}
 
@@ -11,7 +13,10 @@
     {{ form_row(formArticle.label, {'attr': {'placeholder': "Nom de l'article"}}) }}
     {{ form_row(formArticle.price, {'attr': {'placeholder': "Prix de l'article"}}) }}
     {{ form_row(formArticle.ref, {'attr': {'placeholder': "Référence de l'article"}}) }}
-
+    {#{{ form_row(formStored.qty, {'attr': {'placeholder': "Quantité de l'article"}}) }}#}
+   
+    <input type="text" name="qty" placeholder="Quantité">
+    <input type="text" name="id_storage" placeholder="id_storage">
     <button type="submit" class="btn-primary btn"> 
         {% if editMode %}
             Enregistrer les modifications

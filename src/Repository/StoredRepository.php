@@ -19,6 +19,17 @@ class StoredRepository extends ServiceEntityRepository
         parent::__construct($registry, Stored::class);
     }
 
+    // public function findQty($id){
+    //     $conn = $this->getEntityManager()->getConnection();
+
+    //     $sql = 'SELECT qty FROM stored WHERE articles_id = :articles_id';
+    //     $stmt = $conn->prepare($sql);
+    //     $stmt->execute($sql,[
+    //         ':articles_id' => $id
+    //     ]);
+    //     return $stmt->fetch();
+    // }
+
     // /**
     //  * @return Stored[] Returns an array of Stored objects
     //  */
